@@ -46,6 +46,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl', '3.0.0'
+  gem 'email_spec'
 end
 
 gem 'devise', '1.4.3'
