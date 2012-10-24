@@ -24,8 +24,7 @@ Feature: Hidden Links
 
   Scenario: Edit project link is hidden for signed-in users
     Given I am signed in as "user@ticketee.com"
-    When I follow "TextMate 2"
-    Then I should not see the "Edit Project" link
+    Then I should not see the "TextMate 2" link
 
   Scenario: Edit project link is shown to admins
     Given I am signed in as "admin@ticketee.com"
@@ -34,8 +33,7 @@ Feature: Hidden Links
 
   Scenario: Delete project link is hidden for signed-in users
     Given I am signed in as "user@ticketee.com"
-    When I follow "TextMate 2"
-    Then I should not see the "Delete Project" link
+    Then I should not see the "TextMate 2" link
 
   Scenario: Delete project link is shown to admins
     Given I am signed in as "admin@ticketee.com"
