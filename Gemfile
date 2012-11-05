@@ -49,6 +49,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl', '3.0.0'
   gem 'email_spec'
+  gem 'launchy'
 end
 
 gem 'devise', '1.4.3'
