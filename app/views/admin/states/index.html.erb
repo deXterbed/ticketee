@@ -1,0 +1,7 @@
+<ul id='states'>
+  <% for state in @states %>
+    <li><%= link_to state.name, admin_state_path(state) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New State", new_admin_state_path %>
