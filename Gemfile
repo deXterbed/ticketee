@@ -56,3 +56,4 @@ gem 'devise', '1.4.3'
 gem 'cancan', '1.6.7'
 
 gem 'paperclip', '2.8.0'
+gem 'searcher'

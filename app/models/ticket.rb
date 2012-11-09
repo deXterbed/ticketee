@@ -1,5 +1,9 @@
 class Ticket < ActiveRecord::Base
   attr_accessible :description, :title, :user, :assets_attributes, :tags
+
+  searcher do
+    label :tag, :from => :tags, :field => :name
+  end
   belongs_to :project
   belongs_to :user
   belongs_to :state
