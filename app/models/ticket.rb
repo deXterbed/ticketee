@@ -1,6 +1,6 @@
 class Ticket < ActiveRecord::Base
   attr_accessible :description, :title, :user, :assets_attributes, :tags
-
+  after_create :creator_watches_me
   searcher do
     label :tag, :from => :tags, :field => :name
     label :state, :from => :state, :field => :name
@@ -11,6 +11,7 @@ class Ticket < ActiveRecord::Base
   has_many :assets
   has_many :comments
   has_and_belongs_to_many :tags
+  has_and_belongs_to_many :watchers, :join_table => "ticket_watchers", :class_name => "User"
 
   accepts_nested_attributes_for :assets
 
@@ -24,4 +25,8 @@ class Ticket < ActiveRecord::Base
     self.tags << tags
   end 
 
+  private
+  def creator_watches_me
+   self.watchers << user
+  end
 end
