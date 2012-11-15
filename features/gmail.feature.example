@@ -24,7 +24,7 @@ Feature: Gmail
     Then I should see "Comment has been created."
     When I log into gmail with:
       | username | password |
-      | user@gmail.com | b0rn2c0d3 |
+      | user@gmail.com | password |
     Then there should be an email from Ticketee in my inbox
 
 
