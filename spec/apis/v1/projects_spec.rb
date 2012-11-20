@@ -40,6 +40,10 @@ describe "/api/v1/projects", :type => :api do
     end
   end
   context "creating a project" do
+    before do
+      user.admin = true
+      user.save
+    end
     let(:url) { "/api/v1/projects" }
     it "successful JSON" do
       post "#{url}.json", :token => token,
