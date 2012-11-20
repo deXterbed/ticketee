@@ -1,4 +1,5 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
+  before_filter :authorize_admin!, :except => [:index, :show]
   def index
     respond_with(Project.for(current_user))
   end
@@ -10,5 +11,10 @@ class Api::V1::ProjectsController < Api::V1::BaseController
     else
       respond_with(project)
     end
+  end
+
+  def show
+    @project = Project.find(params[:id])
+    respond_with(@project, :methods => "last_ticket")
   end
 end
