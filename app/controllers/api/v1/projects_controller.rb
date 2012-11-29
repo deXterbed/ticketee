@@ -1,6 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
   before_filter :authorize_admin!, :except => [:index, :show]
-  before_filter :find_project, :only => [:show, :update]
+  before_filter :find_project, :only => [:show, :update, :destroy]
   def index
     respond_with(Project.for(current_user))
   end
@@ -15,12 +15,16 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def show
-    @project = Project.find(params[:id])
     respond_with(@project, :methods => "last_ticket")
   end
 
   def update
     @project.update_attributes(params[:project])
+    respond_with(@project)
+  end
+
+  def destroy
+    @project.destroy
     respond_with(@project)
   end
 

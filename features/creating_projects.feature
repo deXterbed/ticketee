@@ -15,7 +15,7 @@ Feature: Creating projects
     And I fill in "Name" with "TextMate 2"
     And I press "Create Project"
     Then I should see "Project has been created."
-    And I should see "TextMate 2 - Projects - Ticketee"
+    And I should see "TextMate 2"
 
   Scenario: Creating a project without a name
     And I press "Create Project"

@@ -16,9 +16,6 @@ Feature: Searching
     And "user@ticketee.com" has created a ticket for this project:
       | title | description | tags | state |
       | Tagged! | Hey! I'm it now! | iteration_2 | Closed |
-    And "user@ticketee.com" has created a ticket for this project:
-      | title | description | tags |
-      | Tag! | Hey! You're it! | iteration_1 |
     Given I am on the homepage
     And I follow "Ticketee" within "#projects"
 
