@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -54,6 +54,7 @@ group :test do
   gem 'factory_girl', '3.0.0'
   gem 'email_spec'
   gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 gem 'devise', '1.4.3'
