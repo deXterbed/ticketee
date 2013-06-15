@@ -19,9 +19,13 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: ticketee_production
   pool: 5
+  username: riddle
+  password: password
   timeout: 5000
 
 cucumber:
