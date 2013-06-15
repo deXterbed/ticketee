@@ -1,5 +1,7 @@
 <%= form_for [@project, @ticket], :html => { :multipart => true } do |f| %>
-  <%= f.error_messages  %>
+  <% @ticket.errors.full_messages.each do |msg|  %>
+    <p><%= msg %></p>
+  <% end %>
   <p>
   <%= f.label :title %><br/>
     <%= f.text_field :title %>

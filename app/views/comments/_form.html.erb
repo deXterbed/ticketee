@@ -1,14 +1,16 @@
 <strong>New Comment</strong>
 <%= form_for [@ticket, @comment] do |f| %>
-  <%= f.error_messages %>
+  <% @comment.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
   <p>
-    <%= f.label :text %><br />
-    <%= f.text_area :text %>
+  <%= f.label :text %><br />
+  <%= f.text_area :text %>
   </p>
   <% authorized?(:"change states", @project) do %>
     <p>
-      <%= f.label :state_id %>
-      <%= f.select :state_id, @states.map { |s| [s.name, s.id] }, :selected => @ticket.state_id %>
+    <%= f.label :state_id %>
+    <%= f.select :state_id, @states.map { |s| [s.name, s.id] }, :selected => @ticket.state_id %>
     </p>  
   <% end %>
   <%= render "tags/form" %>
