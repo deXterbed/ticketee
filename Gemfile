@@ -10,6 +10,8 @@ gem 'rails', '3.2.13'
 
 group :development do
   gem 'sqlite3'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :production do
@@ -57,7 +59,9 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'devise', '1.4.3'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'cancan', '1.6.7'
 gem 'paperclip', '2.8.0'
 gem 'searcher'
+gem 'omniauth'
+gem 'omniauth-twitter'

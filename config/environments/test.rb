@@ -44,3 +44,5 @@ Capybara.configure do |config|
   config.ignore_hidden_elements = true
   config.visible_text_only = true
 end
+
+OmniAuth.config.test_mode = true
