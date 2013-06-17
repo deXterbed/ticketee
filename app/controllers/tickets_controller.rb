@@ -50,7 +50,8 @@ class TicketsController < ApplicationController
   end
 
   def search  
-   @tickets = params[:search].blank? ? [] : @project.tickets.search(params[:search]) 
+   @tickets = params[:search].blank? ? [] : @project.tickets.search(params[:search])
+   @tickets = @tickets.page(params[:page]) unless @tickets.empty? 
    render "projects/show"
   end
 
