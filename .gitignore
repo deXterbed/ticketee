@@ -18,3 +18,4 @@ public/system
 *.swp
 config/initializers/mail.rb
 features/gmail.feature
+.env
