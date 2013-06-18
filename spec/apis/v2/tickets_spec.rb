@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "/api/v2/tickets", :type => :api do
-  let(:project) { Factory(:project, :name => "Ticketee") }
+  let(:project) { create(:project, :name => "Ticketee") }
 
   before do
     @user = create_user!
@@ -14,7 +14,7 @@ describe "/api/v2/tickets", :type => :api do
   context "index" do
     before do
       5.times do
-        Factory(:ticket, :project => project, :user => @user)
+        create(:ticket, :project => project, :user => @user)
       end
     end
 
@@ -28,6 +28,30 @@ describe "/api/v2/tickets", :type => :api do
     it "JSON" do
       get "#{url}.json", :token => token
       last_response.body.should eql(project.tickets.to_json)
+    end
+  end
+
+  context "pagination" do
+    before do
+      100.times do
+        create(:ticket, :project => project, :user => @user)
+      end
+    end
+
+    it "gets the first page" do
+      get "/api/v2/projects/#{project.id}/tickets.json",
+      :token => token,
+        :page => 1
+
+      last_response.body.should eql(project.tickets.page(1).per(50).to_json)
+    end
+
+    it "gets the second page" do
+      get "/api/v2/projects/#{project.id}/tickets.json?page=2",
+      :token => token,
+        :page => 2
+
+      last_response.body.should eql(project.tickets.page(2).per(50).to_json)
     end
   end
 end

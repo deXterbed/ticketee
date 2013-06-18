@@ -13,7 +13,7 @@ describe "Project API errors", :type => :api do
     end
 
     it "cannot view projects they do not have access to" do
-      project = Factory(:project)
+      project = create(:project)
 
       get "/api/v1/projects/#{project.id}.json", :token => user.authentication_token
       error = { :error => "The project you were looking for could not be found." }

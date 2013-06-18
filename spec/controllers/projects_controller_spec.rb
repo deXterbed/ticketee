@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ProjectsController do
   let(:user) { create_user! }
 
-  let(:project) { Factory(:project) }
+  let(:project) { create(:project) }
 
   context "standard users" do
     { "new" => "get", "create" => "post", "edit" => "get", "update" => "put", "destroy" => "delete"}.each do |action, method|

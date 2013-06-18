@@ -5,13 +5,13 @@ describe "/api/v2/projects", :type => :api do
   let(:token) { user.authentication_token }  
 
   before do
-    @project = Factory(:project)
+    @project = create(:project)
     user.permissions.create!(:action => "view", :thing => @project)
   end
 
   context "projects viewable by this user" do
     before do
-      Factory(:project, :name => "Access Denied")
+      create(:project, :name => "Access Denied")
     end
     let(:url) { "/api/v2/projects" }
     let(:options) { { :except => :name, :methods => :title} }
@@ -71,7 +71,7 @@ describe "/api/v2/projects", :type => :api do
   context "show" do
     let(:url) { "/api/v2/projects/#{@project.id}"}
     before do
-      Factory(:ticket, :project => @project)
+      create(:ticket, :project => @project)
     end
     it "JSON" do
       get "#{url}.json", :token => token

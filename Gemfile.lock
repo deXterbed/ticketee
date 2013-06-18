@@ -88,8 +88,11 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    factory_girl (3.0.0)
+    factory_girl (4.2.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.2.1)
+      factory_girl (~> 4.2.0)
+      railties (>= 3.0.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     ffi (1.9.0)
@@ -108,6 +111,8 @@ GEM
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.1)
+    interactive_editor (0.0.10)
+      spoon (>= 0.0.1)
     journey (1.0.4)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
@@ -211,6 +216,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    spoon (0.0.4)
+      ffi
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -244,14 +251,15 @@ DEPENDENCIES
   cancan (= 1.6.7)
   capybara
   coffee-rails (~> 3.2.1)
-  cucumber-rails (= 1.0.6)
+  cucumber-rails
   database_cleaner
   devise!
   dynamic_form
   email_spec
-  factory_girl (= 3.0.0)
+  factory_girl_rails
   foreman
   gmail
+  interactive_editor
   jquery-rails
   kaminari
   launchy

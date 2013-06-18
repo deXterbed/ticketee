@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "/api/v1/tickets", :type => :api do
-  let(:project) { Factory(:project, :name => "Ticketee") }
+  let(:project) { create(:project, :name => "Ticketee") }
 
   before do
     @user = create_user!
@@ -14,7 +14,7 @@ describe "/api/v1/tickets", :type => :api do
   context "index" do
     before do
       5.times do
-        Factory(:ticket, :project => project, :user => @user)
+        create(:ticket, :project => project, :user => @user)
       end
     end
 
