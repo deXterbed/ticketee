@@ -6,6 +6,7 @@ group :development do
   gem 'sqlite3'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'webrick', '~> 1.3.1'
 end
 
 group :production do
@@ -63,3 +64,4 @@ gem 'omniauth-github'
 gem 'foreman'
 gem 'kaminari'
 gem 'interactive_editor'
+gem 'quiet_assets'
