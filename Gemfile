@@ -65,3 +65,5 @@ gem 'foreman'
 gem 'kaminari'
 gem 'interactive_editor'
 gem 'quiet_assets'
+gem 'delayed_job_active_record'
+gem "daemons"
