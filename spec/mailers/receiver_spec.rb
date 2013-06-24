@@ -5,8 +5,8 @@ describe Receiver do
     comment = create(:comment)
     ticket = comment.ticket
 
+    Delayed::Worker.new.work_off(1)
     comment_email = ActionMailer::Base.deliveries.last
-
     user = create(:user)
     mail = Mail.new(:from => user.email, :subject => "Re: #{comment_email.subject}", :body => %Q{This is a brand new comment #{comment_email.default_part_body}}, :to => comment_email.from)
     lambda { Receiver.parse(mail) }.should(change(ticket.comments, :count).by(1))

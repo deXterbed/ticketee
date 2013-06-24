@@ -42,6 +42,7 @@ World(EmailHelpers)
 
 Given /^(?:a clear email queue|no emails have been sent)$/ do
   reset_mailer
+  Delayed::Job.destroy_all
 end
 
 #
@@ -49,6 +50,7 @@ end
 #
 
 Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails?$/ do |address, amount|
+  Delayed::Worker.new.work_off
   unread_emails_for(address).size.should == parse_email_count(amount)
 end
 
